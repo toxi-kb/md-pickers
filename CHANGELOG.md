@@ -1,3 +1,9 @@
+### 1.1.3
+
+#### Bugfixes
+
+* Sometimes 12-hour button was not primary (pull request #35, thanks to [Shea Dougherty-Gill](https://github.com/doug0102))
+
 ### 1.1.2
 
 #### Housekeeping
