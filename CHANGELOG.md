@@ -1,3 +1,9 @@
+### 1.1.4
+
+#### Features
+
+* Added select date on doouble-click
+
 ### 1.1.3
 
 #### Bugfixes
