@@ -101,19 +101,17 @@ function ClockCtrl($scope) {
 
     this.setTimeByDeg = function(deg) {
         deg = deg >= 360 ? 0 : deg;
-        var divider = 0;
         switch(self.type) {
             case TYPE_HOURS:
-                divider = self.ampm ? 12 : 24;
+                var divider = self.ampm ? 12 : 24;
+
+                self.setTime(Math.round(divider / 360 * deg));
                 break;
             case TYPE_MINUTES:
-                divider = 60;
+                self.setTime(Math.round(Math.round(deg / 6) / 5) * 5);
                 break;
         }
 
-        self.setTime(
-            Math.round(divider / 360 * deg)
-        );
     };
 
     this.setTime = function(time, type) {
