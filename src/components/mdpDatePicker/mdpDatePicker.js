@@ -357,6 +357,7 @@ module.directive("mdpDatePicker", ["$mdpDatePicker", "$timeout", "$mdpLocale", f
                     '</md-button>' +
                     '<md-input-container' + (noFloat ? ' md-no-float' : '') + ' md-is-error="isError()">' +
                         '<input name="{{ inputName }}" ng-model="model.$viewValue" ng-required="required()" type="{{ ::type }}"' + (angular.isDefined(attrs.mdpDisabled) ? ' ng-disabled="disabled"' : '') + ' aria-label="{{placeholder}}" placeholder="{{placeholder}}"' + (openOnClick ? ' ng-click="showPicker($event)" ' : '') + ' />' +
+                        '<md-button class="md-icon-button clear-button" ng-if="model.$viewValue" ng-click="clearDate()"><md-icon md-svg-icon="clear"></md-icon></md-button>' +
                     '</md-input-container>' +
                 '</div>';
         },
@@ -494,6 +495,10 @@ module.directive("mdpDatePicker", ["$mdpDatePicker", "$timeout", "$mdpLocale", f
                         inputContainer.hasClass("md-input-invalid")) messages.removeClass("md-auto-hide");
 
                     ngModel.$render();
+                }
+
+                scope.clearDate = function() {
+                    updateDate(null, true);
                 }
 
                 scope.showPicker = function(ev) {
