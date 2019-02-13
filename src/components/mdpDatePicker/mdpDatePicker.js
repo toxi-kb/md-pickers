@@ -180,7 +180,7 @@ function CalendarCtrl($scope) {
 
     this.$onInit = function () {
         self.daysInMonth = [];
-        self.dow = moment.localeData().firstDayOfWeek();
+        self.dow = 1;
         self.weekDays = [].concat(
             moment.weekdaysMin().slice(self.dow),
             moment.weekdaysMin().slice(0, self.dow)
